@@ -35,8 +35,8 @@ steps:
   args:
   - '-c'
   - |
-    gcloud source repos clone ac-pipeline-env && \
-    cd ac-pipeline-env && \
+    gcloud source repos clone ac-repo-2 && \
+    cd ac-repo-2 && \
     git checkout candidate && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 
@@ -48,7 +48,7 @@ steps:
   - '-c'
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > ac-pipeline-env/kubernetes.yaml
+     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > ac-repo-2/kubernetes.yaml
 
 # This step pushes the manifest back to ac-pipeline-env
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -58,10 +58,10 @@ steps:
   - '-c'
   - |
     set -x && \
-    cd ac-pipeline-env && \
+    cd ac-repo-2 && \
     git add kubernetes.yaml && \
     git commit -m "Deploying image us-central1-docker.pkg.dev/$PROJECT_ID/ac-repository/ac-cluster:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository ac-pipeline-app
+    Built from commit ${COMMIT_SHA} of repository ac-repo-1
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin candidate
 
