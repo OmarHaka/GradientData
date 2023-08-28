@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../index'); 
+const app = require('./index'); 
 
 describe('JavaScript Hello App', () => {
   it('should respond with "Hello Node!"', async () => {
