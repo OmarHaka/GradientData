@@ -1,14 +1,19 @@
 {
-    "name": "index",
-    "version": "1.0.0",
-    "dependencies": {
-    },
-    "devDependencies": {
-      "mocha": "^9.1.1",
-      "supertest": "^6.2.0",
-      "expect": "^27.3.0"
-    },
-    "scripts": {
-      "test": "mocha index_test.js"
-    }
+  "name": "index-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "Omar Hakawati",
+  "license": "66degrees",
+  "dependencies": {
+    "express": "^4.17.1"  // You can add your app's dependencies here
+  },
+  "devDependencies": {
+    "jest": "^28.3.0",     // Add Jest as a dev dependency
+    "supertest": "^6.1.6" // Add Supertest as a dev dependency
   }
+}
