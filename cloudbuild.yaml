@@ -1,4 +1,5 @@
 # [START cloudbuild]
+steps:
 #This step intalls app dependencies
 - name: 'node:14'
   id: Install
