@@ -10,10 +10,10 @@
   "author": "Omar Hakawati",
   "license": "66degrees",
   "dependencies": {
-    "express": "^4.17.1"  // You can add your app's dependencies here
+    "express": "^4.17.1" 
   },
   "devDependencies": {
-    "jest": "^28.3.0",     // Add Jest as a dev dependency
-    "supertest": "^6.1.6" // Add Supertest as a dev dependency
+    "jest": "^28.3.0",   
+    "supertest": "^6.1.6" 
   }
 }
