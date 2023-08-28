@@ -1,14 +1,14 @@
 # [START cloudbuild]
+#This step intalls app dependencies
+- name: 'node:14'
+  id: Install
+  entrypoint: 'npm'
+  args: ['install']
 #This step runs the unit tests on the app
 - name: 'node:14'
   id: Test
   entrypoint: 'npm'
-  args:
-  - -c
-  - 'npm test'
-- name: 'node:14'
-   entrypoint: 'npm'
-   args: ['test']
+  args: ['test']
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
