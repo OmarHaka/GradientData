@@ -5,10 +5,9 @@ FROM node:14
 WORKDIR /index
 
 # Copy the application code to the container
-COPY index.js /index
+COPY index.js /index/index.js
 
-# Expose the port the app runs on
-EXPOSE 3000
+ENTRYPOINT ["npm"]
 
 # Command to run the application
 CMD ["node", "index.js"]
